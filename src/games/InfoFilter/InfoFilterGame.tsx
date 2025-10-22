@@ -10,9 +10,6 @@ import "../../styles/InfoFilter.css";
 type GameState = "idle" | "playing" | "show_feedback" | "finished";
 type GameDifficulty = "easy" | "medium" | "hard";
 
-const ROUNDS_PER_GAME = 4;
-const ROUND_DURATION = 6000; // 6s
-
 const InfoFilterGame: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>("idle");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
