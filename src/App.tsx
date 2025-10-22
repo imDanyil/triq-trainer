@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { AppRoutes } from "./configs/routesConfig";
 import Header from "./components/Header";
 import "./App.css";
@@ -11,27 +10,17 @@ const AnimatedRoutes = () => {
 
   return (
     <div className={isScrollablePage ? "app__scroll-wrapper" : "app__content"}>
-      {/* <AnimatePresence mode="wait"> */}
       <Routes location={location} key={location.pathname}>
         {Object.values(AppRoutes).map(({ key, path, Component }) => (
           <Route
             key={key}
             path={path}
             element={
-              // <motion.div
-              //   initial="initial"
-              //   animate="in"
-              //   exit="out"
-              //   variants={pageVariants}
-              //   transition={pageTransition}
-              // >
               <Component />
-              // </motion.div>
             }
           />
         ))}
       </Routes>
-      {/* </AnimatePresence> */}
     </div>
   );
 };
