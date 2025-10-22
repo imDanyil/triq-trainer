@@ -1,0 +1,113 @@
+.home-page-container {
+  height: 100vh;
+  overflow-y: scroll;
+
+  scroll-snap-type: y mandatory;
+}
+
+.home-page-section {
+  height: 100vh;
+  scroll-snap-align: start;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section__content, 
+.problem-section__content, 
+.skills-section__content /* ...and others */ {
+  max-width: 1000px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+/* --- Hero Section --- */
+.hero-section__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.hero-section__subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-section__meta {
+  margin-top: 20px;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- Problem Section --- */
+.problem-section__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 30px;
+}
+.problem-section__text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+.problem-section__highlight {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+.problem-section__highlight--accent {
+  color: var(--color-primary);
+}
+
+/* --- Skills Section --- */
+.skills-section__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 50px;
+}
+.skills-section__grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.skill-card {
+  background-color: var(--color-surface);
+  padding: 20px;
+  border-radius: 12px;
+  width: 150px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.skill-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.skill-card__title {
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  margin-bottom: 5px;
+}
+.skill-card__description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}

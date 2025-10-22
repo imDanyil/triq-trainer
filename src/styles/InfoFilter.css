@@ -1,0 +1,138 @@
+.game-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.game-board__progress {
+  color: var(--color-text-secondary);
+}
+.game-board__question-text {
+  font-size: 24px;
+  line-height: 1.5;
+  /* margin: auto 0; */
+}
+.game-board__controls {
+  flex-shrink: 0;
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.btn--fact,
+.btn--fake {
+  padding: 15px 40px;
+  font-size: 20px;
+  min-width: 150px;
+  max-height: 60px;
+}
+.btn--fact {
+  background-color: var(--color-correct);
+  color: white;
+}
+.btn--fake {
+  background-color: var(var(--color-incorrect));
+  color: white;
+}
+.btn--fact:hover {
+  filter: brightness(1.1);
+}
+.btn--fake:hover {
+  filter: brightness(1.1);
+}
+
+.results-screen__score {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.results-screen__score strong {
+  color: var(--color-primary);
+  font-size: 36px;
+}
+.results-screen__bonus {
+  color: var(--color-correct);
+  font-weight: bold;
+}
+
+.feedback-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.5s;
+}
+
+.feedback-screen__title {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.feedback-screen__points {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.feedback-screen__points--correct {
+  color: var(--color-correct);
+}
+
+.feedback-screen__points--incorrect {
+  color: var(var(--color-incorrect));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.btn--selected-correct {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(40, 167, 69, 0.7);
+  background-color: var(--color-correct);
+}
+
+.btn--selected-incorrect {
+  animation: shake 0.5s;
+  background-color: var(var(--color-incorrect));
+}
+
+.btn--faded {
+  opacity: 0.5;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.btn--was-correct {
+  outline: 3px solid var(--color-correct);
+  outline-offset: 1px;
+}
+
+.game-board__controls button:disabled:hover {
+  filter: none;
+}
+
+.game-board__main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

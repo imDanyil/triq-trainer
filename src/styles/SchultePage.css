@@ -1,0 +1,276 @@
+/* .schulte-page__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.schulte-page__container h1 {
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.schulte-page__container p {
+  color: var(--color-text-secondary);
+  text-align: center;
+} */
+
+.schulte-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 650px;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.schulte-game__board {
+  display: grid;
+  gap: 2%;
+  width: max-content; /* Auto-width based on cells */
+  aspect-ratio: 1 / 1; /* Keeps it square */
+  justify-content: center; /* Centers the board */
+  margin: 0 auto; /* Extra centering fallback */
+}
+
+.schulte-game__cell {
+  width: clamp(
+    50px,
+    8vw,
+    60px
+  ); /* Fixed-ish size: responsive but consistent across boards */
+  height: clamp(50px, 8vw, 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  border: 3px solid var(--color-border); /* Thinner for smaller cells */
+  transition: all 0.2s ease; /* Smooth hover/feedback */
+  font-size: clamp(12px, 4vw, 24px); /* Scaled down max for consistency */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.schulte-game__cell:hover {
+  border-color: var(--color-primary);
+  transform: scale(1.05); /* Fun hover scale */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schulte-game__cell--correct,
+.schulte-game__cell--correct:hover {
+  background-color: var(--color-correct);
+  border-color: var(--color-correct);
+  color: white;
+  animation: pulse 0.3s ease; /* Quick success pulse */
+}
+
+.schulte-game__cell--incorrect,
+.schulte-game__cell--incorrect:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+  animation: shake 0.3s ease; /* Lil' shake for mistakes */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.schulte-game__settings-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap; /* Mobile-friendly */
+}
+
+.schulte-game__btn {
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
+  font-size: clamp(14px, 3vw, 16px);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.schulte-game__btn:hover {
+  background-color: var(--color-secondary);
+  transform: scale(0.98);
+}
+
+.schulte-game__btn--secondary {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.schulte-game__btn--secondary:hover {
+  background-color: var(--color-border);
+}
+
+.schulte-game__btn--cta {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.schulte-game__btn--cta:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.schulte-game__dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.schulte-game__stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px; /* Better spacing on small screens */
+  flex-wrap: wrap; /* Mobile wrap */
+}
+
+.schulte-game__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--color-background);
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 2vw, 15px);
+  border-radius: 8px;
+  min-width: 70px;
+  text-align: center;
+  flex: 1; /* Equal space on mobile */
+}
+
+.schulte-game__stat-label {
+  font-size: clamp(12px, 2.5vw, 14px);
+  color: var(--color-text-secondary);
+}
+
+.schulte-game__stat-value {
+  font-size: clamp(18px, 4vw, 24px);
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+
+.schulte-game__stat--target {
+  background-color: var(--color-accent);
+  transform: scale(1.05); /* Slight emphasis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.schulte-game__stat--target .schulte-game__stat-value {
+  font-size: clamp(20px, 5vw, 32px);
+  color: white;
+}
+
+.schulte-game__actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.schulte-game__results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.schulte-game__results .schulte-game__stats p {
+  font-size: clamp(18px, 4vw, 22px);
+  margin: 5px 0;
+  text-align: center;
+}
+
+.schulte-game__results .schulte-game__stats strong {
+  color: var(--color-primary);
+}
+
+.schulte-game__title {
+  font-size: clamp(24px, 5vw, 32px);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.schulte-game__desc {
+  font-size: clamp(14px, 3vw, 16px);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .schulte-game {
+    min-height: auto;
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .schulte-game__stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .schulte-game__stat {
+    min-width: auto;
+    flex: none;
+  }
+
+  .schulte-game__settings-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .schulte-game__btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}

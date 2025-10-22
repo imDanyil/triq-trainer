@@ -1,0 +1,39 @@
+.trainers-list-page .page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.trainers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.trainer-card {
+  display: block;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.trainer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.trainer-card p {
+  color: #666;
+  line-height: 1.5;
+}

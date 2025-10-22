@@ -1,0 +1,98 @@
+.stats-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.stats-table {
+  width: 600px;
+  border-collapse: collapse; /* Прибирає подвійні рамки між комірками */
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  overflow: hidden; /* Потрібно, щоб border-radius працював на таблиці */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-table thead th {
+  background-color: var(--color-secondary);
+  color: var(--color-text-primary);
+  font-size: 16px;
+  text-align: center;
+}
+
+.stats-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.stats-table tbody tr:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Прибираємо лінію в останнього рядка */
+.stats-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.stats-table td {
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Робимо важливі дані більш помітними */
+.stats-table td:nth-child(4),
+.stats-table td:nth-child(5) {
+  font-weight: bold;
+  color: var(--color-text-primary);
+}
+
+.stats-table tbody tr.best-result {
+  background-color: rgba(200, 160, 50, 0.15); /* Злегка золотистий фон */
+  border-left: 4px solid var(--color-primary); /* Акцентна лінія зліва */
+}
+
+.stats-table tbody tr.best-result td {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+
+.stats-table th:first-child,
+.stats-table td:first-child {
+  /*width: 40px; Фіксована ширина для колонки з іконкою */
+  text-align: center;
+}
+
+.stats-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Дозволяє переносити кнопку на новий рядок на малих екранах */
+  gap: 20px;
+}
+
+.clear-history-button {
+  /* Перевизначаємо деякі глобальні стилі для цієї кнопки */
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.clear-history-button:hover {
+  background-color: var(--color-surface);
+  color: #ff6b6b; /* Червонуватий колір для позначення "небезпечної" дії */
+  border-color: #ff6b6b;
+  filter: none; /* Скидаємо фільтр яскравості з глобальних стилів */
+}

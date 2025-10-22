@@ -1,0 +1,115 @@
+.header {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  padding: 15px 20px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: height 0.3s ease-in-out;
+}
+
+.header--scrolled {
+  height: 60px;
+  padding: 10px 20px;
+}
+
+.header__logo {
+  height: 40px;
+  cursor: pointer;
+}
+
+.header__nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.header__nav-link {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+  padding: 5px 0;
+  position: relative;
+}
+
+.header__nav-link:hover {
+  color: var(--color-primary);
+}
+
+.header__nav-link.active {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.header__nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease-in-out;
+}
+
+.header__nav-link:hover::after,
+.header__nav-link.active::after {
+  width: 100%;
+}
+
+.header__nav-item--dropdown {
+  position: relative;
+}
+
+.header__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-background);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  margin: 10px 0 0;
+  min-width: 220px;
+  z-index: 1001;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.header__nav-item--dropdown:hover .header__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header__dropdown-link {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.header__dropdown-link:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
