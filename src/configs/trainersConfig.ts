@@ -24,14 +24,14 @@ const trainerData = [
     description: "Знайдіть та натисніть на числа по порядку від 1 до N.",
     Component: SchulteTableGame,
   },
-  // {
-  //   id: "color-clash",
-  //   // path: "/trainer/color-clash",
-  //   name: "Кольоровий Конфлікт",
-  //   title: "Тренажер: Кольоровий Конфлікт",
-  //   description: "Назвіть колір, яким написано слово, а не саме слово.",
-  //   Component: StroopEffectGame,
-  // },
+  {
+    id: "color-clash",
+    // path: "/trainer/color-clash",
+    name: "Кольоровий Конфлікт",
+    title: "Тренажер: Кольоровий Конфлікт",
+    description: "Назвіть колір, яким написано слово, а не саме слово.",
+    Component: StroopEffectGame,
+  },
   {
     id: "instant-recall",
     // path: "/trainer/instant-recall",
